@@ -3,45 +3,54 @@
 Sourced from the CV and the public GitHub profile. Nothing here asserts a
 metric, employer, or project that is not already in those documents.
 
-Line-length budgets (characters), enforced by render.py at build time:
-    wide  identity card -> 72
-    stack identity card -> 48
+Line lengths are budget-checked at build time: if something does not fit its
+card, render.py fails loudly rather than clipping it silently.
 """
 
 NAME = "Salih Camcı"
+GREETING = "Hi"
+GREETING_TAIL = "I'm"
 
-# Wide build (desktop, 1280x520).
+# Typed out, held, deleted, then the next one. Cycles for the whole loop.
+ROTATE = [
+    "Software Engineer",
+    "Incoming MSc Data Science · University of Basel",
+    "Former Backend Engineering Intern · Crytek",
+]
+
 WIDE = {
     "title_left": "portrait",
-    "title_right": "salih@basel — zsh",
+    "title_right": "salih@basel — zsh — 120x34",
     "command": "whoami",
-    "roles": [
-        "Software Engineer",
-        "Incoming MSc Data Science · University of Basel",
-        "Former Backend Engineering Intern · Crytek",
-    ],
+    "rotate": ROTATE,
     "fields": [
-        ("~/focus", "backend systems · data science · agents"),
-        ("~/build", "AI systems · spatial interfaces"),
-        ("~/stack", "Python  Go  SQL  PyTorch  FastAPI  Docker"),
-        ("~/links", "github.com/Salih04 · in/salih-camci"),
+        ("~/location", "Istanbul → Basel, Sep 2026"),
+        ("~/focus", "backend · data science · agentic systems"),
+        ("~/github", "github.com/Salih04"),
+        ("~/email", "salihcamci04@gmail.com"),
     ],
+    "skills": [
+        "Python", "Go", "SQL", "PyTorch", "FastAPI",
+        "Docker", "PostgreSQL", "Redis", "TypeScript", "Temporal",
+    ],
+    "connect": ["GitHub", "LinkedIn", "Portfolio"],
 }
 
-# Stacked build (mobile, 560 wide). Shorter lines so the type can be larger.
+# Mobile: shorter strings so the type can stay large at 420px.
 STACK = {
     "title_left": "portrait",
     "title_right": "salih@basel — zsh",
     "command": "whoami",
-    "roles": [
+    "rotate": [
         "Software Engineer",
-        "Incoming MSc Data Science · Basel",
-        "Former Backend Eng · Crytek",
+        "MSc Data Science · Basel",
+        "Backend Eng · Crytek",
     ],
     "fields": [
-        ("~/focus", "backend · data science"),
-        ("~/build", "AI systems · spatial UI"),
-        ("~/stack", "Python Go SQL PyTorch"),
-        ("~/links", "github.com/Salih04"),
+        ("~/location", "Istanbul → Basel"),
+        ("~/focus", "backend · data · agents"),
+        ("~/github", "github.com/Salih04"),
     ],
+    "skills": ["Python", "Go", "SQL", "PyTorch", "FastAPI", "Docker"],
+    "connect": ["GitHub", "LinkedIn"],
 }

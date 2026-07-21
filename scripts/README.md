@@ -70,5 +70,11 @@ so the mobile and reduced-motion variants are both honoured.
   that stops on the final frame instead.
 - The portrait reveals one row per frame. Delta compression makes the extra frames nearly
   free — only the newly drawn row changes between frames.
+- The role line types, holds, deletes and moves to the next entry in `ROTATE`, cycling for
+  the whole loop. Timing knobs are `ROT_TYPE` / `ROT_DEL` / `ROT_HOLD` / `ROT_GAP`.
+- Skill pills wrap greedily to the card width, so adding one to `skills` reflows the rows
+  and grows the card automatically — the canvas height is derived from the content.
+- The wave emoji comes from Apple Color Emoji (Menlo has no emoji coverage). Its colours are
+  folded into the fixed palette at build time so it survives quantisation.
 - Font is Menlo (macOS system). On another OS, point `FONT_PATH` in `render.py` at any
   monospace TTF and re-measure `ADVANCE_RATIO` (advance width ÷ point size).
