@@ -23,6 +23,7 @@ portrait:
 frames:
 	$(PY) scripts/terminal/render.py --build wide  --still assets/generated/hero-static.png
 	$(PY) scripts/terminal/render.py --build stack
+	$(PY) scripts/terminal/stamp_readme.py
 
 all: portrait frames check
 
