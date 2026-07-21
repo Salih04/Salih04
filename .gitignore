@@ -1,3 +1,5 @@
 .venv/
 assets/
 .DS_Store
+outputs/
+scripts/
