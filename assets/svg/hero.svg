@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 280" width="1000" height="280" role="img" aria-label="Salih Camci — Data Science, Machine Learning, Backend Engineering">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0B1016"/>
+      <stop offset="55%" stop-color="#111C28"/>
+      <stop offset="100%" stop-color="#16293A"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1A3A5C"/>
+      <stop offset="55%" stop-color="#3E8E9C"/>
+      <stop offset="100%" stop-color="#66C2CD"/>
+    </linearGradient>
+    <linearGradient id="areaFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#66C2CD" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#66C2CD" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="fadeIn" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#000"/>
+      <stop offset="38%" stop-color="#fff"/>
+      <stop offset="100%" stop-color="#fff"/>
+    </linearGradient>
+    <mask id="chartMask">
+      <rect x="0" y="0" width="1000" height="280" fill="url(#fadeIn)"/>
+    </mask>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#66C2CD" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1000" height="280" fill="url(#bg)"/>
+  <rect width="1000" height="280" fill="url(#grid)"/>
+
+  <g mask="url(#chartMask)">
+    <g transform="translate(452 0)">
+      <path d="M0 220 L64 200 L128 208 L192 172 L256 180 L320 134 L384 142 L448 100 L488 78 L488 280 L0 280 Z" fill="url(#areaFill)"/>
+      <path d="M0 220 L64 200 L128 208 L192 172 L256 180 L320 134 L384 142 L448 100 L488 78"
+            fill="none" stroke="#66C2CD" stroke-opacity="0.9" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round"/>
+      <g fill="#0B1016" stroke="#66C2CD" stroke-width="2.5">
+        <circle cx="192" cy="172" r="4.5"/>
+        <circle cx="320" cy="134" r="4.5"/>
+        <circle cx="448" cy="100" r="4.5"/>
+      </g>
+      <circle cx="488" cy="78" r="6" fill="#66C2CD"/>
+      <circle cx="488" cy="78" r="13" fill="none" stroke="#66C2CD" stroke-opacity="0.35" stroke-width="2"/>
+    </g>
+  </g>
+
+  <text x="64" y="112" font-family="Helvetica Neue, Helvetica, Segoe UI, Arial, sans-serif"
+        font-size="54" font-weight="700" fill="#F0F6FC" letter-spacing="-0.5">Salih Camci</text>
+
+  <text x="66" y="152" font-family="Helvetica Neue, Helvetica, Segoe UI, Arial, sans-serif"
+        font-size="20" font-weight="600" fill="#66C2CD" letter-spacing="0.3">Data Science · Machine Learning · Backend Engineering</text>
+
+  <text x="66" y="188" font-family="Helvetica Neue, Helvetica, Segoe UI, Arial, sans-serif"
+        font-size="15.5" fill="#8B98A5">MSc Data Science @ University of Basel &#8212; Sep 2026</text>
+
+  <text x="66" y="212" font-family="Helvetica Neue, Helvetica, Segoe UI, Arial, sans-serif"
+        font-size="15.5" fill="#8B98A5">Backend Engineering Intern @ Crytek GmbH</text>
+
+  <rect x="64" y="64" width="4" height="34" rx="2" fill="url(#accent)"/>
+  <rect x="0" y="274" width="1000" height="6" fill="url(#accent)"/>
+</svg>

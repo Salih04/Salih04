@@ -1,5 +1,6 @@
 .venv/
-assets/
+assets/*
+!assets/svg/
 .DS_Store
 outputs/
 scripts/
