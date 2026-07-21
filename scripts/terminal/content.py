@@ -39,8 +39,9 @@ STACK = {
         "Former Backend Eng Intern · Crytek",
     ],
     "fields": [
-        ("~/focus", "backend · data science · agents"),
-        ("~/stack", "Python Go SQL PyTorch FastAPI"),
+        ("~/focus", "backend · data science"),
+        ("~/build", "AI systems · spatial UI"),
+        ("~/stack", "Python Go SQL PyTorch"),
         ("~/links", "github.com/Salih04"),
     ],
 }

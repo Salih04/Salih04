@@ -131,14 +131,17 @@ def build_layout(stacked: bool, cols: int, rows: int, cfg: dict) -> Layout:
         )
         lay.right_card_y, lay.right_card_h = lay.card_y, lay.card_h
     else:
-        canvas_w = 560 * SCALE
+        # Deliberately narrow. The <img width="100%"> fills GitHub's ~308px
+        # mobile column regardless of native size, so a smaller canvas is
+        # downscaled less and the baked-in text stays legible.
+        canvas_w = 420 * SCALE
         lay = Layout(
             canvas_w=canvas_w, canvas_h=0,
             left_x=margin, left_w=canvas_w - 2 * margin,
             right_x=margin, right_w=canvas_w - 2 * margin,
             card_y=margin, card_h=0, stacked=True,
             portrait_font=0, portrait_line=0,
-            body_font=30, body_line=54, name_font=40,
+            body_font=28, body_line=50, name_font=38,
         )
 
     # Fit the portrait grid inside the left card without distorting it.
