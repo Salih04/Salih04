@@ -1,6 +1,25 @@
 .venv/
+.DS_Store
+
+# Ignore everything under assets by default, then allow only derived, publishable output.
 assets/*
 !assets/svg/
-.DS_Store
+!assets/generated/
+!assets/data/
+
+# Never publish source imagery or intermediates, wherever they land.
+assets/source-private/
+assets/preview/
+assets/generated/frames/
+*.jpg
+*.jpeg
+*.heic
+
+# Superseded terminal experiment (kept locally, recoverable from commit 0fd89d0).
 outputs/
-scripts/
+
+# Superseded by scripts/portrait/ and scripts/terminal/.
+# Kept on disk; also recoverable from commit 0fd89d0.
+scripts/img_to_ascii.py
+scripts/portrait.sh
+scripts/whoami.sh
