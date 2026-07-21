@@ -59,21 +59,25 @@ systems, and production backend services. Currently writing distributed Go servi
 
 ## Featured Projects
 
-| Project | What it is | Stack |
-| :--- | :--- | :--- |
-| **[FinanceIQ](https://github.com/Salih04/capstone-financeIQ)** | Equity research signal system over 81 BIST companies — 40+ leakage-safe features, walk-forward cross-validation, and a full-stack research terminal with an ML + LLM agent | `Python` `FastAPI` `PostgreSQL` `Docker` |
-| **[Applied RL — Highway](https://github.com/Salih04/Applied-Reinforcement-Learning-Highway)** | Reinforcement learning agents trained on highway driving scenarios | `Python` `RL` |
-| **[Face Mask Detection](https://github.com/Salih04/Face_Mask_Detection_YOLOV8)** | Real-time mask detection with YOLOv8 | `Python` `OpenCV` |
-| **[CLI Task Queue](https://github.com/Salih04/CLI-Task-Queue-with-Priority-Rules)** | Priority-rule task queue built on Go concurrency primitives | `Go` |
-| **[Movie Recommender](https://github.com/Salih04/Movie_Recommendation_System)** | Recommendation engine implemented from scratch | `C++` |
+**[FinanceIQ](https://github.com/Salih04/capstone-financeIQ)** — `Python` `FastAPI` `PostgreSQL` `Docker`<br />
+Equity research signal system over 81 BIST companies: 40+ leakage-safe features, walk-forward
+cross-validation, and a full-stack research terminal driven by an ML + LLM agent.
+
+**[Applied RL — Highway](https://github.com/Salih04/Applied-Reinforcement-Learning-Highway)** — `Python`<br />
+Reinforcement learning agents trained on highway driving scenarios.
+
+**[Face Mask Detection](https://github.com/Salih04/Face_Mask_Detection_YOLOV8)** — `Python` `OpenCV`<br />
+Real-time mask detection with YOLOv8.
+
+**[CLI Task Queue](https://github.com/Salih04/CLI-Task-Queue-with-Priority-Rules)** — `Go`<br />
+Priority-rule task queue built on Go concurrency primitives.
+
+**[Movie Recommender](https://github.com/Salih04/Movie_Recommendation_System)** — `C++`<br />
+Recommendation engine implemented from scratch.
 
 ---
 
 <div align="center">
-
-<img src="https://streak-stats.demolab.com?user=Salih04&theme=dark&hide_border=true&disable_animations=true&background=0D1117&stroke=1A3A5C&ring=66C2CD&fire=66C2CD&currStreakLabel=66C2CD" alt="GitHub streak" />
-
-<br /><br />
 
 **Open to Data Science internships in Basel** · available from September 2026
 
