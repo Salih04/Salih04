@@ -1,7 +1,7 @@
 <picture>
-  <source media="(prefers-reduced-motion: reduce)" srcset="assets/generated/hero-static.png?v=3b48ce56">
-  <source media="(max-width: 600px)" srcset="assets/generated/hero-stack.gif?v=1e99f153">
-  <img src="assets/generated/hero-wide.gif?v=13de78f2" width="100%"
+  <source media="(prefers-reduced-motion: reduce)" srcset="assets/generated/hero-static.png?v=6e600853">
+  <source media="(max-width: 600px)" srcset="assets/generated/hero-stack.gif?v=a2d00864">
+  <img src="assets/generated/hero-wide.gif?v=51ff3bd1" width="100%"
        alt="Terminal showing an ASCII portrait beside a whoami command printing: Salih Camcı — Software Engineer; incoming MSc Data Science at the University of Basel; former Backend Engineering Intern at Crytek. Focus: backend systems, data science, agentic workflows.">
 </picture>
 

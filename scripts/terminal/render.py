@@ -116,10 +116,10 @@ def build_layout(stacked: bool, cols: int, rows: int, cfg: dict) -> Layout:
     """Solve font sizes so the portrait block fits its card at the true aspect."""
     margin = 14 * SCALE
     if not stacked:
-        canvas_w, canvas_h = 1280 * SCALE, 520 * SCALE
+        canvas_w, canvas_h = 1280 * SCALE, 560 * SCALE
         gutter = 28 * SCALE
         usable = canvas_w - 2 * margin
-        left_w = int(usable * 0.394)  # 39.4% / 58.4% split of the composition
+        left_w = int(usable * 0.40)  # 40% / 57.8% split of the composition
         right_x = margin + left_w + gutter
         right_w = canvas_w - margin - right_x
         lay = Layout(
@@ -127,7 +127,7 @@ def build_layout(stacked: bool, cols: int, rows: int, cfg: dict) -> Layout:
             left_x=margin, left_w=left_w, right_x=right_x, right_w=right_w,
             card_y=margin, card_h=canvas_h - 2 * margin, stacked=False,
             portrait_font=0, portrait_line=0,
-            body_font=32, body_line=64, name_font=48,
+            body_font=44, body_line=76, name_font=62,
         )
         lay.right_card_y, lay.right_card_h = lay.card_y, lay.card_h
     else:
@@ -141,7 +141,7 @@ def build_layout(stacked: bool, cols: int, rows: int, cfg: dict) -> Layout:
             right_x=margin, right_w=canvas_w - 2 * margin,
             card_y=margin, card_h=0, stacked=True,
             portrait_font=0, portrait_line=0,
-            body_font=28, body_line=50, name_font=38,
+            body_font=32, body_line=58, name_font=46,
         )
 
     # Fit the portrait grid inside the left card without distorting it.
@@ -250,52 +250,72 @@ def draw_frame(st: State, lay: Layout, cfg: dict, portrait: list[str]) -> Image.
     return img.resize((lay.canvas_w // SCALE, lay.canvas_h // SCALE), Image.LANCZOS)
 
 
+PORTRAIT_START = 600
+PORTRAIT_STEP_MS = 105   # one row per frame: the finest reveal the format allows
+TYPE_START = 1200
+TYPE_MS = 95
+BLINK_MS = 530
+REST_START = 6100        # everything has landed; cursor blinks until the loop
+LOOP_END = 11400
+
+
 def build_timeline(rows: int, cfg: dict) -> Timeline:
-    """The §10 schedule. Times in ms; state is sampled at each boundary."""
+    """Times in ms; state is sampled at each boundary.
+
+    The portrait reveals a single row per frame rather than three, which is what
+    makes the paint read as smooth instead of stepped. Delta compression means
+    the extra frames cost very little: only the newly drawn row changes.
+    """
     tl = Timeline()
     cmd_len = len(cfg["command"])
     n_roles, n_fields = len(cfg["roles"]), len(cfg["fields"])
-
-    step = 3  # portrait rows revealed per frame
-    reveal_steps = (rows + step - 1) // step
+    portrait_end = PORTRAIT_START + rows * PORTRAIT_STEP_MS
 
     def portrait_at(t: int) -> int:
-        if t < 600:
+        if t < PORTRAIT_START:
             return 0
-        done = (t - 600) // 190
-        return min(rows, done * step)
+        return min(rows, (t - PORTRAIT_START) // PORTRAIT_STEP_MS)
 
-    marks: list[int] = [0, 300]
-    marks += [600 + i * 190 for i in range(reveal_steps + 1)]
-    marks += [1200 + i * 95 for i in range(cmd_len + 1)]
-    marks += [2150, 2400, 2600, 2800, 3400, 4200, 5000, 6300, 6900, 7600, 8400, 9200, 13500]
-    marks = sorted(set(m for m in marks if m <= 13500))
+    marks: list[int] = [0]
+    marks += [i * BLINK_MS for i in range(1, TYPE_START // BLINK_MS + 1)]
+    marks += [PORTRAIT_START + i * PORTRAIT_STEP_MS for i in range(rows + 1)]
+    marks += [TYPE_START + i * TYPE_MS for i in range(cmd_len + 1)]
+    marks += [2150, 2400, 2650, 2900, 3500, 4150, 4800, 5450]
+    marks += list(range(REST_START, LOOP_END + 1, BLINK_MS))
+    marks = sorted(set(m for m in marks if m <= LOOP_END))
 
     for t in marks:
         st = State()
         st.portrait_rows = portrait_at(t)
-        st.typed = 0 if t < 1200 else min(cmd_len, (t - 1200) // 95)
+        st.typed = 0 if t < TYPE_START else min(cmd_len, (t - TYPE_START) // TYPE_MS)
         st.show_name = t >= 2150
-        st.roles = 0 if t < 2400 else min(n_roles, (t - 2400) // 200 + 1)
-        if t < 3400:
-            st.fields = 0
+        st.roles = 0 if t < 2400 else min(n_roles, (t - 2400) // 250 + 1)
+        st.fields = 0 if t < 3500 else min(n_fields, (t - 3500) // 650 + 1)
+        # Blink while idle before typing, and again once everything has settled,
+        # so a continuously looping hero still has a calm sign of life at rest.
+        if t < TYPE_START or t >= REST_START:
+            st.cursor = (t // BLINK_MS) % 2 == 0
         else:
-            st.fields = min(n_fields, (t - 3400) // 800 + 1)
-        # cursor blinks only while idle before typing starts
-        st.cursor = True if t >= 1200 else (t // 530) % 2 == 0
+            st.cursor = True
         tl.at(t, st)
 
+    assert portrait_end < REST_START, "portrait must finish before the rest hold"
     return tl
 
 
-def encode_gif(frames: list[tuple[Image.Image, int]], out: Path, loop_forever: bool) -> None:
+def fixed_palette() -> Image.Image:
+    """A stable palette image. Per-frame adaptive palettes drift and kill delta compression."""
     pal = Image.new("P", (1, 1))
     flat: list[int] = []
     for c in PALETTE:
         flat.extend(c)
     flat.extend([0, 0, 0] * (256 - len(PALETTE)))
     pal.putpalette(flat)
+    return pal
 
+
+def encode_gif(frames: list[tuple[Image.Image, int]], out: Path, loop_forever: bool) -> None:
+    pal = fixed_palette()
     quantised = [im.quantize(palette=pal, dither=Image.NONE) for im, _ in frames]
     durations = [d for _, d in frames]
 
@@ -366,7 +386,11 @@ def main() -> None:
 
     if args.still:
         args.still.parent.mkdir(parents=True, exist_ok=True)
-        frames[-1][0].save(args.still, format="PNG", optimize=True)
+        # Quantise to the same fixed palette as the GIF: an 11-colour terminal
+        # has no business being stored as truecolour.
+        frames[-1][0].quantize(palette=fixed_palette(), dither=Image.NONE).save(
+            args.still, format="PNG", optimize=True
+        )
 
     total = sum(d for _, d in frames)
     kb = out.stat().st_size / 1024

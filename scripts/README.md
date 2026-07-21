@@ -65,7 +65,10 @@ so the mobile and reduced-motion variants are both honoured.
   what keeps small monospace text sharp.
 - Quantised against a **fixed** palette. Per-frame adaptive palettes cause colour drift and
   destroy GIF delta compression.
-- The GIF omits the Netscape loop block, so it plays once and rests on the final frame.
-  Pass `--loop` to `render.py` for an infinitely looping build instead.
+- Built with `--loop`, so the GIF cycles continuously (~14.4s per cycle) with a blinking
+  cursor during the rest hold. Drop `--loop` in the `Makefile` to emit a play-once build
+  that stops on the final frame instead.
+- The portrait reveals one row per frame. Delta compression makes the extra frames nearly
+  free — only the newly drawn row changes between frames.
 - Font is Menlo (macOS system). On another OS, point `FONT_PATH` in `render.py` at any
   monospace TTF and re-measure `ADVANCE_RATIO` (advance width ÷ point size).

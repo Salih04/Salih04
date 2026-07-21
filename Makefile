@@ -21,8 +21,8 @@ portrait:
 	$(PY) scripts/portrait/build_portrait.py --cols 64 --out assets/data/portrait-stack.txt
 
 frames:
-	$(PY) scripts/terminal/render.py --build wide  --still assets/generated/hero-static.png
-	$(PY) scripts/terminal/render.py --build stack
+	$(PY) scripts/terminal/render.py --build wide --loop --still assets/generated/hero-static.png
+	$(PY) scripts/terminal/render.py --build stack --loop
 	$(PY) scripts/terminal/stamp_readme.py
 
 all: portrait frames check

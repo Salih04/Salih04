@@ -21,10 +21,10 @@ WIDE = {
         "Former Backend Engineering Intern · Crytek",
     ],
     "fields": [
-        ("~/focus", "backend systems · data science · agentic workflows"),
-        ("~/building", "research tooling · AI systems · spatial interfaces"),
+        ("~/focus", "backend systems · data science · agents"),
+        ("~/build", "AI systems · spatial interfaces"),
         ("~/stack", "Python  Go  SQL  PyTorch  FastAPI  Docker"),
-        ("~/links", "github.com/Salih04 · in/salih-camci · salih04.github.io"),
+        ("~/links", "github.com/Salih04 · in/salih-camci"),
     ],
 }
 
@@ -36,7 +36,7 @@ STACK = {
     "roles": [
         "Software Engineer",
         "Incoming MSc Data Science · Basel",
-        "Former Backend Eng Intern · Crytek",
+        "Former Backend Eng · Crytek",
     ],
     "fields": [
         ("~/focus", "backend · data science"),
