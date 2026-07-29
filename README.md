@@ -1,39 +1,45 @@
-<picture>
-  <source media="(prefers-reduced-motion: reduce)" srcset="assets/generated/hero-static.png?v=c32a234a">
-  <source media="(max-width: 600px)" srcset="assets/generated/hero-stack.gif?v=6fa7b99a">
-  <img src="assets/generated/hero-wide.gif?v=396a8ccf" width="100%"
-       alt="Terminal showing an ASCII portrait beside a whoami command. It reads: Hi, I'm Salih Camcı, cycling through Software Engineer; Incoming MSc Data Science at the University of Basel; Former Backend Engineering Intern at Crytek. Location Istanbul to Basel, September 2026. Focus: backend, data science, agentic systems. Skills: Python, Go, SQL, PyTorch, FastAPI, Docker, PostgreSQL, Redis, TypeScript, Temporal.">
-</picture>
+# Salih Camcı
 
-## Focus
+Software Engineering graduate and incoming MSc Data Science student at the University of Basel, focused on data systems, backend engineering, and applied AI.
 
-Production backend services in **Go** — goroutines, channels, Protobuf, Redis — and the
-debugging discipline that keeps them running.
+## Current
 
-End-to-end **ML pipelines** where the evaluation is the hard part: leakage-safe feature
-design, walk-forward validation, and reporting the result you actually got.
+- Software Engineering graduate from Bahçeşehir University (July 2026)
+- Incoming MSc Data Science student at the University of Basel (Autumn 2026)
+- Former Backend Engineering Intern at Crytek (May 2026 - July 2026)
+- Current focus: reproducible data systems, backend engineering, and applied AI
 
-**Agentic systems** and spatial interfaces — multi-agent orchestration, config-driven model
-routing, and making non-trivial systems legible to the people who have to use them.
+## Selected Work
 
-## Selected work
+| Project | What it demonstrates | Status | Technologies |
+|---|---|---|---|
+| [FinanceIQ](https://github.com/Salih04/capstone-financeIQ) | Leakage-safe T-to-T+1 equity-research pipeline, full-stack research interface, and reproducible experiments. The expanded study found weak and unstable predictive signal rather than a reliable edge. | Completed research project | Python, FastAPI, PostgreSQL, React, Docker |
+| [Parking Space Occupancy](https://github.com/Salih04/ParkingLot_Detection_System_Using_YoloV8) | Parking-space crop classification, debounced occupancy state, streaming dashboard, event storage, and multi-camera orchestration. Trained data and weights are external to the repository. | Functional prototype | Python, YOLOv8, FastAPI, OpenCV, SQLite |
+| [Applied RL - Highway](https://github.com/Salih04/Applied-Reinforcement-Learning-Highway) | DQN training workflow with custom reward shaping, saved checkpoints, reward logs, and qualitative simulation evidence. | Learning project | Python, Stable-Baselines3, Gymnasium |
+| [CLI Task Queue](https://github.com/Salih04/CLI-Task-Queue-with-Priority-Rules) | Priority, dependency, and skip rules implemented with Go concurrency primitives. | Learning project | Go |
+| [Portfolio](https://salih04.github.io/) | Zero-build bilingual portfolio with mirrored English/Turkish content and static quality checks. | Completed project | HTML, CSS, JavaScript |
 
-**[FinanceIQ](https://github.com/Salih04/capstone-financeIQ)** · `Python` `FastAPI` `PostgreSQL` `Docker`
-T+1 equity research signal system over 81 BIST companies. 40+ leakage-safe features,
-walk-forward validation, and a research terminal whose LLM agent queries only validated
-structured data.
+## Technical Focus
 
-**[Applied RL — Highway](https://github.com/Salih04/Applied-Reinforcement-Learning-Highway)** · `Python`
-Reinforcement learning agents trained on highway driving scenarios.
+- **Data and machine learning:** Python, SQL, pandas, scikit-learn, PyTorch, TensorFlow, OpenCV
+- **Backend and APIs:** Go, FastAPI, REST APIs, concurrency, testing
+- **Databases and infrastructure:** PostgreSQL, Redis, SQLite, Docker, CI workflows
+- **Frontend and visualization:** React, TypeScript, HTML, CSS, data-oriented interfaces
+- **Engineering workflows:** Git, reproducible experiments, validation gates, code review
 
-**[CLI Task Queue](https://github.com/Salih04/CLI-Task-Queue-with-Priority-Rules)** · `Go`
-Priority-rule task queue built on Go concurrency primitives.
+## Experience
 
-**[Face Mask Detection](https://github.com/Salih04/Face_Mask_Detection_YOLOV8)** · `Python` `OpenCV`
-Real-time detection with YOLOv8.
+**Former Backend Engineering Intern at Crytek**
 
-## Elsewhere
+May 2026 - July 2026
 
-[Portfolio](https://salih04.github.io) · [LinkedIn](https://linkedin.com/in/salih-camci)
+Worked on Go backend code, testing, CI, and collaborative engineering workflows. Public portfolio projects are personal or academic work and are separate from Crytek systems.
 
-<sub>Istanbul → Basel, September 2026 · English (C1) · Turkish (native) · German (A1)</sub>
+## Education
+
+- **Incoming MSc Data Science** - University of Basel, Autumn 2026
+- **Software Engineering** - Bahçeşehir University, graduated July 2026
+
+## Contact
+
+[Portfolio](https://salih04.github.io/) · [LinkedIn](https://www.linkedin.com/in/salih-camci/)
